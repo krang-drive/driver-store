@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/krang-drive/driver-store/issues"
   },
-  "homepage": "https://github.com/krang-drive/driver-store#readme"
+  "homepage": "https://github.com/krang-drive/driver-store#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
