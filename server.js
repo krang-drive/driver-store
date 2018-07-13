@@ -70,7 +70,9 @@ app.get('/', function (req, res) {
 
 app.get('/drivers', function (req, res) {
 
-    driver.find({online: req.body.online}, function (err, docs) {
+    driver.find($and:[
+      {routeId: null},
+      {online: req.body.online}], function (err, docs) {
 
       if(!err){
 
@@ -80,6 +82,8 @@ app.get('/drivers', function (req, res) {
 
       }
       else {
+
+          res.send(err);
 
           console.log("Error, no drivers found!");
 
@@ -107,6 +111,8 @@ app.post('/drivers', function(req, res){
     }
     else {
 
+      res.send(err);
+
       console.error("Error, no drivers updated!")
 
     }
@@ -117,11 +123,11 @@ app.post('/drivers', function(req, res){
 
 //----------------------------------------------------------------------------//
 
-app.get('/drivers/:driverId', function(req, res){
+app.get('/drivers/:id', function(req, res){
 
-    let driverId = req.params.driverId;
+    var id = req.params['id'];
 
-    driver.findOne({driverId = req.params.driverId}, function (err, doc){
+    driver.find({driverId = id}, function (err, doc){
 
         if(!err){
 
@@ -131,6 +137,8 @@ app.get('/drivers/:driverId', function(req, res){
 
         }
         else{
+
+            res.send(err);
 
             console.error("Error, no drivers found!")
 
