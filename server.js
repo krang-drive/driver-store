@@ -56,7 +56,7 @@ module.exports = driver;
 
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extented: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //----------------------------------------------------------------------------//
 
@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
 
 app.get('/drivers', function (req, res) {
 
-    driver.find( {$and:[{routeId: null}, {online: req.body.online}]}, function (err, docs) {
+    driver.find( {$and:[{routeId: null}, {online: true}]}, function (err, docs) {
 
       if(!err){
 
@@ -125,7 +125,7 @@ app.get('/drivers/:id', function(req, res){
 
     var id = req.params['id'];
 
-    driver.find({driverId = id}, function (err, doc){
+    driver.find({driverId: id}, function (err, doc){
 
         if(!err){
 
