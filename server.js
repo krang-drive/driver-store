@@ -95,9 +95,7 @@ app.get('/drivers', function (req, res) {
 
 app.post('/drivers', function(req, res){
 
-  let driverId = req.body.driverId;
-
-  driver.findOneAndUpdate({driverId: req.body.driverId}, req.body.online , {upsert:true}, function(err, doc) {
+  driver.findOneAndUpdate({driverId: req.body.driverId}, req.body , {upsert:true}, function(err, doc) {
 
     //Writing out the post information to console.
     if (!err) {
