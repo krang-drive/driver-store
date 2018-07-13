@@ -87,9 +87,9 @@ app.get('/drivers', function (req, res) {
 
           console.log("Error, no drivers found!");
 
-      });
+      }
 
-    });
+    );
 
 });
 
