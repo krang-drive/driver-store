@@ -70,9 +70,7 @@ app.get('/', function (req, res) {
 
 app.get('/drivers', function (req, res) {
 
-    driver.find({$and:[
-      {routeId: null},
-      {online: req.body.online}]}, function (err, docs) {
+    driver.find( {$and:[{routeId: null}, {online: req.body.online}]}, function (err, docs) {
 
       if(!err){
 
@@ -89,7 +87,7 @@ app.get('/drivers', function (req, res) {
 
       }
 
-    );
+    });
 
 });
 
